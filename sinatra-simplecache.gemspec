@@ -5,11 +5,11 @@ require 'sinatra/simplecache/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "sinatra-simplecache"
-  spec.version       = Sinatra::Simplecache::VERSION
+  spec.version       = Sinatra::SimpleCache::VERSION
   spec.authors       = ["yoppi"]
   spec.email         = ["y.hirokazu@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{Simple cache helper for Sinatra}
+  spec.summary       = %q{Simple cache helper for Sinatra}
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -18,6 +18,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
+  spec.add_dependency "sinatra"
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
 end
