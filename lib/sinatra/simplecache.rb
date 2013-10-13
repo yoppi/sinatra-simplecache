@@ -18,18 +18,18 @@ module Sinatra
     #    slim :detail, :locales = { :sidebar => @@sidebar }
     #
     def cache(opts={}, &block)
-      @@entries ||= {}
+      @@__entries__ ||= {}
 
       now = Time.now.to_f
       expire = opts[:expire] ? (opts[:expire] + now) : (@@inf ||= 1/0.0)
       key = opts[:key] || (defined?(Sinatra) && request.path) || abort("set key")
 
-      if (e = @@entries[key]) && (e[:expire] > now)
+      if (e = @@__entries__[key]) && (e[:expire] > now)
         return e[:value]
       end
 
       value = block.call
-      @@entries[key] = {
+      @@__entries__[key] = {
         expire: expire,
         value: value
       }
