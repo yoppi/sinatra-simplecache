@@ -21,7 +21,7 @@ module Sinatra
       @@__entries__ ||= {}
 
       now = Time.now.to_f
-      expire = opts[:expire] ? (opts[:expire] + now) : (@@inf ||= 1/0.0)
+      (expire = opts[:expire]) ? (expire + now) : (@@inf ||= 1/0.0)
       key = opts[:key] || (defined?(Sinatra) && request.path) || abort("set key")
 
       if (e = @@__entries__[key]) && (e[:expire] > now)
